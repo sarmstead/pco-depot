@@ -56,6 +56,9 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+
+  # Live reloading
+  gem "hotwire-spark", "~> 0.1.13"
 end
 
 group :test do
