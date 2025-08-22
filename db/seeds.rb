@@ -1,4 +1,4 @@
-products = Rails.root.join("test", "fixtures", "products.yml")
+products = Rails.root.join("db", "seeds", "products.yml")
 
 YAML.load_file(products).each do |name, attributes|
   puts "Creating #{attributes["title"]} ..."
