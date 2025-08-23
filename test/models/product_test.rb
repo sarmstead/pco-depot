@@ -71,4 +71,21 @@ class ProductTest < ActiveSupport::TestCase
 
     assert_not @product.valid?, "image/svg must not be valid"
   end
+
+  test "product must have a unique title" do
+    invalid_product = Product.new(
+      title: @product.title,
+      description: "This drill is a little screwy!",
+      price: 12.34
+    )
+    invalid_product.image.attach(
+      io: File.open(
+        file_fixture("test.gif"),
+      ),
+      filename: "test.gif",
+      content_type: "image/gif"
+    )
+    assert invalid_product.invalid?
+    assert invalid_product.errors[:title].any?
+  end
 end
