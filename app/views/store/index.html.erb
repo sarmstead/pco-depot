@@ -3,7 +3,7 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <h1 class="font-bold text-4xl">Products</h1>
+  <h1 class="font-display font-medium text-4xl">Products</h1>
 
   <% if @products.any? %>
     <ul class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -12,10 +12,10 @@
           <% cache product do %>
             <li class="flex flex-col space-y-2">
               <%= image_tag product.image, alt: product.title, class: "w-full object-cover" %>
-              <h2 class="text-xl font-medium"><%= product.title %></h2>
+              <h2 class="font-display text-xl font-medium"><%= product.title %></h2>
               <p class="font-bold"><%= number_to_currency product.price %></p>
-              <p><%= truncate(strip_tags(product.description), length: 300) %></p>
-              <button class="border-2 p-2 cursor-pointer bg-yellow-300 font-medium hover:bg-gray-100">Add to Cart</button>
+              <p><%= truncate(strip_tags(product.description), length: 100) %></p>
+              <button class="rounded-sm font-display text-white border-2 px-2 py-3 cursor-pointer bg-black font-medium hover:bg-yellow-300 hover:text-black">Add to Cart</button>
             </li>
           <% end %>
         <% end %>
