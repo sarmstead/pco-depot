@@ -8,7 +8,7 @@ YAML.load_file(products).each do |name, attributes|
   product.price = attributes["price"]
   product.image.attach(
     io: File.open(
-      Rails.root.join("test", "fixtures", "files", attributes["image"])
+      Rails.root.join("db", "seeds", attributes["image"])
     ),
     filename: attributes["title"]
   )
