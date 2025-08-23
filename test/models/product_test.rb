@@ -70,4 +70,12 @@ class ProductTest < ActiveSupport::TestCase
     assert invalid_product.invalid?
     assert invalid_product.errors[:title].any?
   end
+
+  test "product title must be greater than or equal to ten characters" do
+    @product.title = "not ten"
+    assert_not @product.valid?
+
+    @product.title = "definitely more than ten"
+    assert @product.valid?
+  end
 end

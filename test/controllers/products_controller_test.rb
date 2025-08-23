@@ -20,7 +20,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
       post products_url, params: { product: {
         description: @product.description,
         price: @product.price,
-        title: "Nail Gun",
+        title: "PCO 5590 Nail Gun Kit",
         image: file_fixture_upload("test.jpg", "image/jpeg")
       } }
     end
