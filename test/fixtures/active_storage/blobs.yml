@@ -1,0 +1,2 @@
+drill: <%= ActiveStorage::FixtureSet.blob filename: 'test.jpg' %>
+screwdriver: <%= ActiveStorage::FixtureSet.blob filename: 'test.gif' %>

@@ -1,0 +1,9 @@
+drill:
+  name: image
+  record: drill (Product)
+  blob: drill
+
+screwdriver:
+  name: image
+  record: screwdriver (Product)
+  blob: screwdriver
