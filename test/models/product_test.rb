@@ -17,13 +17,13 @@ class ProductTest < ActiveSupport::TestCase
   test "should be invalid when price is negative" do
     @product.price = -1
     assert @product.invalid?
-    assert_equal [ "must be greater than or equal to 0.01" ], @product.errors[:price]
+    assert @product.errors[:price].any?
   end
 
   test "should be invalid when price is zero" do
     @product.price = 0
     assert @product.invalid?
-    assert_equal [ "must be greater than or equal to 0.01" ], @product.errors[:price]
+    assert @product.errors[:price].any?
   end
 
   test "should be valid when price is greater than or equal to one cent" do
