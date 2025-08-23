@@ -35,40 +35,22 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test ".png image file extension is valid" do
+    @product.image.update(content_type: "image/png")
     assert @product.valid?, "image/png must be valid"
   end
 
   test ".gif image file extension is valid" do
-    @product.image.attach(
-      io: File.open(
-        file_fixture("test.gif"),
-      ),
-      filename: "test.gif",
-      content_type: "image/gif"
-    )
+    @product.image.update(content_type: "image/gif")
     assert @product.valid?, "image/gif must be valid"
   end
 
   test ".jpg image file extension is valid" do
-    @product.image.attach(
-      io: File.open(
-        file_fixture("test.jpg"),
-      ),
-      filename: "test.jpg",
-      content_type: "image/jpeg"
-    )
+    @product.image.update(content_type: "image/jpeg")
     assert @product.valid?, "image/jpeg must be valid"
   end
 
   test "any image file extension other than .gif, .png, or .jpg is valid" do
-    @product.image.attach(
-      io: File.open(
-        file_fixture("test.svg"),
-      ),
-      filename: "test.svg",
-      content_type: "image/svg"
-    )
-
+    @product.image.update(content_type: "image/svg")
     assert_not @product.valid?, "image/svg must not be valid"
   end
 
@@ -80,10 +62,10 @@ class ProductTest < ActiveSupport::TestCase
     )
     invalid_product.image.attach(
       io: File.open(
-        file_fixture("test.gif"),
+        file_fixture("test.jpg"),
       ),
-      filename: "test.gif",
-      content_type: "image/gif"
+      filename: "test.jpg",
+      content_type: "image/jpg"
     )
     assert invalid_product.invalid?
     assert invalid_product.errors[:title].any?
