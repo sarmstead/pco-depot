@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  product: one
+  product: screwdriver
   cart: one
 
 two:
-  product: two
+  product: screwdriver
   cart: two
