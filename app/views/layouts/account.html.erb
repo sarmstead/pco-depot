@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "PCO Depot" %></title>
+    <title><%= content_for(:title) || "Depot" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -22,11 +22,9 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="flex flex-col min-h-screen">
-    <%= render "layouts/top_navigation" %>
-    <main class="container mx-auto mt-10 mb-20 px-5 flex grow-1">
+  <body>
+    <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
-    <%= render "layouts/footer" %>
   </body>
 </html>
