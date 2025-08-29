@@ -1,4 +1,6 @@
 class CartsController < ApplicationController
+  layout "store"
+
   before_action :set_cart, only: %i[ show edit update destroy ]
 
   # GET /carts or /carts.json

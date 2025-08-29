@@ -17,7 +17,7 @@
                 <p class="font-bold"><%= number_to_currency product.price %></p>
                 <p><%= truncate(strip_tags(product.description), length: 100) %></p>
               </div>
-              <button class="rounded-sm font-display text-white border-2 px-2 py-3 cursor-pointer bg-black font-medium hover:bg-yellow-300 hover:text-black">Add to Cart</button>
+              <%= button_to "Add to Cart", line_items_path(product_id: product), class: "rounded-sm font-display text-white border-2 px-2 py-3 cursor-pointer bg-black font-medium hover:bg-yellow-300 hover:text-black" %>
             </li>
           <% end %>
         <% end %>
