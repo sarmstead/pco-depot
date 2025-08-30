@@ -23,6 +23,14 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to store_index_url
   end
 
+  test "should create line_item via turbo_stream" do
+    assert_difference("LineItem.count") do
+      post line_items_url, params: { product_id: products(:screwdriver).id }, as: :turbo_stream
+    end
+
+    assert_response :success
+  end
+
   test "should show line_item" do
     get line_item_url(@line_item)
     assert_response :success
