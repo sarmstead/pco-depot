@@ -28,7 +28,9 @@
           <% end %>
         <% end %>
       </section>
-      <%= render @cart %>
+      <% if @cart and not @cart.line_items.empty? %>
+        <%= render @cart %>
+      <% end %>
     </section>
   <% else %>
     <p>No Products found!</p>
