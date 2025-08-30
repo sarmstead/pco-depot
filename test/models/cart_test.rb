@@ -13,4 +13,8 @@ class CartTest < ActiveSupport::TestCase
 
     assert_mock line_item
   end
+
+  test "#total_items returns sum of line item quantity" do
+    assert carts(:one).total_items == line_items(:one).quantity
+  end
 end
