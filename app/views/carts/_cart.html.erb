@@ -1,23 +1,10 @@
-<section class="flex flex-col w-full gap-8 lg:flex-row">
-    <section id="<%= dom_id cart %>" class="w-full sm:w-auto my-5 space-y-5 grow-2">
-        <% cart.line_items.each do |item| %>
-            <article class="flex flex-col space-x-2 p-4 border-gray-200 border-1 rounded md:flex-row">
-                <%= image_tag item.product.image, alt: item.product.title, class: "w-full object-cover md:max-w-40" %>
-                <div class="flex w-full flex-col pt-2">
-                    <div class="flex w-full max-h-fit items-center justify-between">
-                        <h2 class="font-display text-xl font-medium"><%= item.product.title %> &times; <%= item.quantity %></h2>
-                    </div>
-                    <p class="text-lg font-bold"><%= number_to_currency item.product.price * item.quantity %></p>
-                    <% if item.quantity > 1 %>
-                        <p class="text-sm text-gray-600"><%= item.product.price %> / each</p>
-                    <% end %>
-                </div>
-            </article>
-        <% end %>
-        <%= button_to "Empty Cart", cart_path(cart), method: :delete, class: "underline cursor-pointer" %>
+<aside class="basis-4xl border-gray-200 border-1 rounded p-4 max-h-fit flex flex-col w-full gap-2">
+    <section id="<%= dom_id cart %>" class="w-full space-y-5 mb-8 sm:w-auto">
+        <%= render cart.line_items %>
     </section>
-    <section class="my-5 p-4 bg-gray-100 rounded grow-1 max-h-fit">
-        <h2 class="font-display text-xl font-medium">Order Summary</h2>
-        Total <%= number_to_currency cart.total_price %>
+    <section class="mt-5 p-4 bg-gray-100 rounded max-h-fit">
+        <h2 class="font-display text-lg font-medium text-right">Order Summary</h2>
+        <p class="text-base text-right">Total <%= number_to_currency cart.total_price %></p>
     </section>
-</section>
+     <%= button_to "Empty Cart", cart_path(cart), method: :delete, class: "underline cursor-pointer flex justify-end w-full text-xs" %>
+</aside>

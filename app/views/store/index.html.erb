@@ -10,23 +10,26 @@
   <h1 class="font-display font-medium text-4xl">Products</h1>
 
   <% if @products.any? %>
-    <ul class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-5">
-      <% cache @products do %>
-        <% @products.each do |product| %>
-          <% cache product do %>
-            <li class="flex flex-col justify-between space-y-2 p-4 border-gray-200 border-1 rounded">
-              <div>
-                <%= image_tag product.image, alt: product.title, class: "w-full object-cover mb-2" %>
-                <h2 class="font-display text-xl font-medium"><%= product.title %></h2>
-                <p class="font-bold"><%= number_to_currency product.price %></p>
-                <p><%= truncate(strip_tags(product.description), length: 100) %></p>
-              </div>
-              <%= button_to "Add to Cart", line_items_path(product_id: product), class: "rounded-sm font-display text-white border-2 px-2 py-3 cursor-pointer bg-black font-medium hover:bg-yellow-300 hover:text-black" %>
-            </li>
+    <section class="flex flex-col gap-4 2xl:flex-row">
+      <section class="grid gap-4 grow-1 h-min md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-5">
+        <% cache @products do %>
+          <% @products.each do |product| %>
+            <% cache product do %>
+              <article class="flex flex-col justify-between space-y-2 p-4 border-gray-200 border-1 rounded">
+                <div>
+                  <%= image_tag product.image, alt: product.title, class: "w-full object-cover mb-2" %>
+                  <h2 class="font-display text-xl font-medium"><%= product.title %></h2>
+                  <p class="font-bold"><%= number_to_currency product.price %></p>
+                  <p><%= truncate(strip_tags(product.description), length: 100) %></p>
+                </div>
+                <%= button_to "Add to Cart", line_items_path(product_id: product), class: "rounded-sm font-display text-white border-2 px-2 py-3 cursor-pointer bg-black font-medium hover:bg-yellow-300 hover:text-black" %>
+              </article>
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
-    </ul>
+      </section>
+      <%= render @cart %>
+    </section>
   <% else %>
     <p>No Products found!</p>
   <% end %>
