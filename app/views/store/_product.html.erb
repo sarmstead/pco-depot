@@ -1,5 +1,5 @@
 <%= turbo_frame_tag(dom_id(product)) do %>
-    <article class="flex flex-col justify-between space-y-2 p-4 border-gray-200 border-1 rounded">
+    <article class="flex flex-col h-full justify-between space-y-2 p-4 border-gray-200 border-1 rounded">
         <div>
             <%= image_tag product.image, alt: product.title, class: "w-full object-cover mb-2" %>
             <h2 class="font-display text-xl font-medium"><%= product.title %></h2>
