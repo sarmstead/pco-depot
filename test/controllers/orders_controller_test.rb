@@ -11,6 +11,8 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
+    # TODO: remove extra network request and assign cart to a fixture
+    post line_items_url, params: { product_id: products(:drill).id }
     get new_order_url
     assert_response :success
   end
@@ -44,5 +46,10 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to orders_url
+  end
+
+  test "requires line item in cart" do
+    get new_order_url
+    assert_redirected_to store_index_path
   end
 end
