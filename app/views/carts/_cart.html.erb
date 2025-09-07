@@ -6,5 +6,8 @@
         <h2 class="font-display text-lg font-medium text-right">Order Summary</h2>
         <p class="text-base text-right">Total <%= number_to_currency cart.total_price %></p>
     </section>
-     <%= button_to "Empty Cart", cart_path(cart), method: :delete, class: "underline cursor-pointer flex justify-end w-full text-xs" %>
+    <section class="flex justify-end mb-4">
+        <%= button_to "Checkout", new_order_path, method: :get, class: "rounded-sm font-display text-white border-2 px-2 py-3 cursor-pointer bg-black font-medium hover:bg-yellow-300 hover:text-black" %>
+    </section>
+    <%= button_to "Empty Cart", cart_path(cart), method: :delete, class: "underline cursor-pointer flex justify-end w-full text-xs" %>
 </aside>
