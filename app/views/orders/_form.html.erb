@@ -13,22 +13,22 @@
 
   <div>
     <%= form.label :name %>
-    <%= form.text_field :name, class: "field" %>
+    <%= form.text_field :name %>
   </div>
 
   <div>
     <%= form.label :address %>
-    <%= form.textarea :address, rows: 4, class: "field" %>
+    <%= form.textarea :address, rows: 3 %>
   </div>
 
   <div>
     <%= form.label :email %>
-    <%= form.email_field :email, class: "field" %>
+    <%= form.email_field :email %>
   </div>
 
   <div>
     <%= form.label :pay_type %>
-    <%= form.select :pay_type, Order.pay_types.keys, { prompt: "Select a payment method" }, class: "field" %>
+    <%= form.select :pay_type, Order.pay_types.keys.map { |key| [key.humanize.titlecase, key] }, { prompt: "Select a payment method" } %>
   </div>
 
   <div class="flex justify-end">
