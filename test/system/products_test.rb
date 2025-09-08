@@ -12,11 +12,12 @@ class ProductsTest < ApplicationSystemTestCase
 
   test "should create product" do
     visit products_url
-    click_on "New product"
+    click_on "Create new product"
 
-    fill_in "Description", with: @product.description
-    fill_in "Price", with: @product.price
-    fill_in "Title", with: @product.title
+    fill_in "Description", with: "A very pointy tool to make a pointed point."
+    fill_in "Price", with: 12.34
+    fill_in "Title", with: "PCO 2950 Sawzall"
+    attach_file "Image", file_fixture("test.jpg"), make_visible: true
     click_on "Create Product"
 
     assert_text "Product was successfully created"
