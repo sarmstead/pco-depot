@@ -26,9 +26,11 @@
     <%= form.email_field :email %>
   </div>
 
-  <div data-controller="payment" class="flex flex-col space-y-5">
-    <%= form.label :pay_type %>
-    <%= form.select :pay_type, Order.pay_types.keys.map { |key| [key.humanize.titlecase, key] }, { prompt: "Select a payment method" }, data: { action: "payment#showAdditionalFields", "payment-target": "selection" } %>
+  <div data-controller="payment" class="flex flex-col gap-5">
+    <div>
+      <%= form.label :pay_type, "Payment Method" %>
+      <%= form.select :pay_type, Order.pay_types.keys.map { |key| [key.humanize.titlecase, key] }, { prompt: "How would you like to pay?" }, data: { action: "payment#showAdditionalFields", "payment-target": "selection" } %>
+    </div>
     
     <%= render partial: "check", locals: { form: form } %>
     <%= render partial: "credit_card", locals: { form: form } %>
