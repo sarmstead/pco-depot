@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id]
-        OrderMailer.received(@order).deliver_later
+        ChargeOrderJob.perform_later(@order, pay_type_params.to_h)
 
         format.html { redirect_to store_index_url, notice: "Thanks for your order! We're packing it right now." }
         format.json { render :show, status: :created, location: @order }
@@ -75,6 +75,18 @@ class OrdersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def order_params
       params.expect(order: [ :name, :address, :email, :pay_type ])
+    end
+
+    def pay_type_params
+      if order_params[:pay_type] == "credit_card"
+        params.require(:order).permit(:credit_card_number, :expiration_date)
+      elsif order_params[:pay_type] == "check"
+        params.require(:order).permit(:routing_number, :account_number)
+      elsif order_params[:pay_type] == "purchase_order"
+        params.require(:order).permit(:po_number)
+      else
+        {}
+      end
     end
 
     def ensure_cart_not_empty
