@@ -32,6 +32,7 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id]
+        OrderMailer.received(@order).deliver_later
 
         format.html { redirect_to store_index_url, notice: "Thanks for your order! We're packing it right now." }
         format.json { render :show, status: :created, location: @order }
