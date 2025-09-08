@@ -1,4 +1,4 @@
-<%= form_with(model: order, class: "contents") do |form| %>
+<%= form_with(model: order, class: "flex flex-col space-y-5 w-full mt-[-13.5]") do |form| %>
   <% if order.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
       <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="my-5">
+  <div>
     <%= form.label :name %>
-    <%= form.text_field :name, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": order.errors[:name].none?, "border-red-400 focus:outline-red-600": order.errors[:name].any?}] %>
+    <%= form.text_field :name, class: "field" %>
   </div>
 
-  <div class="my-5">
+  <div>
     <%= form.label :address %>
-    <%= form.textarea :address, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": order.errors[:address].none?, "border-red-400 focus:outline-red-600": order.errors[:address].any?}] %>
+    <%= form.textarea :address, rows: 4, class: "field" %>
   </div>
 
-  <div class="my-5">
+  <div>
     <%= form.label :email %>
-    <%= form.text_field :email, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": order.errors[:email].none?, "border-red-400 focus:outline-red-600": order.errors[:email].any?}] %>
+    <%= form.email_field :email, class: "field" %>
   </div>
 
-  <div class="my-5">
+  <div>
     <%= form.label :pay_type %>
-    <%= form.number_field :pay_type, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": order.errors[:pay_type].none?, "border-red-400 focus:outline-red-600": order.errors[:pay_type].any?}] %>
+    <%= form.select :pay_type, Order.pay_types.keys, { prompt: "Select a payment method" }, class: "field" %>
   </div>
 
-  <div class="inline">
-    <%= form.submit class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+  <div class="flex justify-end">
+    <%= form.submit "Place Order", class: "max-w-fit rounded-sm font-display text-white border border-2 px-2 py-3 cursor-pointer bg-black font-medium hover:bg-yellow-300 hover:text-black" %>
   </div>
 <% end %>

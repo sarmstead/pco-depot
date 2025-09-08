@@ -1,6 +1,8 @@
+<% without_checkout ||= false %>
+
 <% if cart and not cart.line_items.empty? %>
-    <div id="cart" class="basis-4xl border-gray-200 border-1 rounded max-h-fit">
-        <%= render cart %>
+    <div id="cart" class="border-gray-200 border-1 rounded max-h-fit">
+        <%= render partial: "carts/cart", locals: { cart: cart, without_checkout: without_checkout } %>
     </div>
 <% else %>
     <div id="cart"></div>
