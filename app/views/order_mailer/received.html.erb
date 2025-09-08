@@ -1,5 +1,7 @@
-<h1>Order#received</h1>
-
-<p>
-  <%= @order.name %>, find me in app/views/order_mailer/received.html.erb
-</p>
+<p>Well howdy, <%= @order.name %>!</p>
+<p>Thank you for your recent purchase. Here at PCO Depot, we are down right giddy anytime we get to pack a new box. So, thanks for the opportunity!</p>
+<p>Below are your order details:</p>
+<%= render @order.line_items -%>
+<p>We'll be in touch again when your order ships. Until then, use the promo code <strong>FRIEND</strong> for 15% off your next order!</p>
+<p>With joy because it's always tool time,</p>
+<p>Tim Taylor</p>
