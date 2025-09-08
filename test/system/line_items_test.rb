@@ -11,15 +11,10 @@ class LineItemsTest < ApplicationSystemTestCase
   end
 
   test "should create line item" do
-    visit line_items_url
-    click_on "New line item"
+    visit store_index_url
+    click_on "Add to Cart", match: :first
 
-    fill_in "Cart", with: @line_item.cart_id
-    fill_in "Product", with: @line_item.product_id
-    click_on "Create Line item"
-
-    assert_text "Line item was successfully created"
-    click_on "Back"
+    assert_text "#{products(:drill).title} × 1"
   end
 
   test "should update Line item" do
