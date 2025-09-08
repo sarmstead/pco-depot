@@ -1,5 +1,7 @@
-<h1>Order#shipped</h1>
-
-<p>
-  <%= @greeting %>, find me in app/views/order_mailer/shipped.html.erb
-</p>
+<p>Would you believe it, <%= @order.name %>?!</p>
+<p>We just shipped your order and should have it to you by tomorrow! Your UPS shipping number is <strong>#A2078HTP23890.</strong></p>
+<p>Here's our packing list:</p>
+<%= render @order.line_items -%>
+<p>Let us know if you have any questions and if we can help in any way when you get your tools!</p>
+<p>See you on the flip side,<p>
+<p>Tim Taylor</p>
