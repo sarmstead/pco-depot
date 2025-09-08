@@ -7,8 +7,8 @@
   <%= turbo_stream_from "products" %>
 
   <% if @products.any? %>
-    <section class="flex flex-col gap-4 2xl:flex-row">
-      <section class="grid gap-4 grow-1 h-min md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-5">
+    <section class="grid grid-cols-1 gap-4 xl:grid-cols-[1fr_300px]">
+      <section class="grid gap-4 grow-1 h-min md:grid-cols-2 xl:grid-cols-3 ">
         <% cache @products do %>
           <% @products.each do |product| %>
             <% cache product do %>
