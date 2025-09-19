@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "garage" => "garage#index"
   resources :users
   resource :session
   resources :passwords, param: :token
