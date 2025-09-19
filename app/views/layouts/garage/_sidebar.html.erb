@@ -1,0 +1,34 @@
+<aside class="basis-sm border-r-[0.5] border-gray-300 p-5">
+    <ul class="flex flex-col gap-3 text-white md:gap-5">
+        <li>
+            <%= link_to orders_path, class: "font-display uppercase tracking-wide flex items-center space-x-1" do %>
+                <div class="w-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 -960 960 960" width="100%" fill="currentColor">
+                        <path d="M440-183v-274L200-596v274l240 139Zm80 0 240-139v-274L520-457v274Zm-40-343 237-137-237-137-237 137 237 137ZM160-252q-19-11-29.5-29T120-321v-318q0-22 10.5-40t29.5-29l280-161q19-11 40-11t40 11l280 161q19 11 29.5 29t10.5 40v318q0 22-10.5 40T800-252L520-91q-19 11-40 11t-40-11L160-252Zm320-228Z"/>
+                    </svg>
+                </div>
+                <span class="cursor-pointer border-transparent border-b-1 border-dashed hover:border-yellow-300">Orders</span>
+            <% end %>
+        </li>
+        <li>
+            <%= link_to products_path, class: "font-display uppercase tracking-wide flex items-center space-x-1" do %>
+                <div class="w-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 -960 960 960" width="100%" fill="currentColor">
+                        <path d="M159-120v-120h124L181-574q-27-15-44.5-44T119-680q0-50 35-85t85-35q39 0 69.5 22.5T351-720h128v-40q0-17 11.5-28.5T519-800q9 0 17.5 4t14.5 12l68-64q9-9 21.5-11.5T665-856l156 72q12 6 16.5 17.5T837-744q-6 12-17.5 15.5T797-730l-144-66-94 88v56l94 86 144-66q11-5 23-1t17 15q6 12 1 23t-17 17l-156 74q-12 6-24.5 3.5T619-512l-68-64q-6 6-14.5 11t-17.5 5q-17 0-28.5-11.5T479-600v-40H351q-3 8-6.5 15t-9.5 15l200 370h144v120H159Zm80-520q17 0 28.5-11.5T279-680q0-17-11.5-28.5T239-720q-17 0-28.5 11.5T199-680q0 17 11.5 28.5T239-640Zm126 400h78L271-560h-4l98 320Zm78 0Z"/>
+                    </svg>
+                </div>
+                <span class="cursor-pointer border-transparent border-b-1 border-dashed hover:border-yellow-300">Products</span>
+            <% end %>
+        </li>
+        <li>
+            <%= link_to users_path, class: "font-display uppercase tracking-wide flex items-center space-x-1" do %>
+                <div class="w-5">
+                    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.3163 19.4384C5.92462 18.0052 7.34492 17 9 17H15C16.6551 17 18.0754 18.0052 18.6837 19.4384M16 9.5C16 11.7091 14.2091 13.5 12 13.5C9.79086 13.5 8 11.7091 8 9.5C8 7.29086 9.79086 5.5 12 5.5C14.2091 5.5 16 7.29086 16 9.5ZM22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <span class="cursor-pointer border-transparent border-b-1 border-dashed hover:border-yellow-300">Users</span>
+            <% end %>
+        </li>
+    </ul>
+</aside>
