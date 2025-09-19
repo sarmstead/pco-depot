@@ -21,7 +21,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       post users_url, params: { user: { email_address: "aborland@example.net", first_name: "Al", last_name: "Borland", password: "secret", password_confirmation: "secret" } }
     end
 
-    assert_redirected_to user_url(User.last)
+    assert_redirected_to store_index_url
   end
 
   test "should show user" do
