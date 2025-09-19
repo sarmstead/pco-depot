@@ -1,6 +1,8 @@
 class StoreController < ApplicationController
   include CurrentCart
 
+  allow_unauthenticated_access
+
   before_action :set_cart
 
   def index
