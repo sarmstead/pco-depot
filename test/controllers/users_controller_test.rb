@@ -3,6 +3,7 @@ require "test_helper"
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:tim)
+    login_as @user
   end
 
   test "should get index" do

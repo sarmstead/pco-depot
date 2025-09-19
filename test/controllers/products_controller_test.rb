@@ -3,6 +3,7 @@ require "test_helper"
 class ProductsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @product = products(:drill)
+    login_as users(:tim)
   end
 
   test "should get index" do
