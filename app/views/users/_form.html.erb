@@ -1,4 +1,4 @@
-<%= form_with(model: user, class: "contents") do |form| %>
+<%= form_with(model: user, class: "flex flex-col space-y-5 w-full") do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,32 +11,33 @@
     </div>
   <% end %>
 
-  <div class="my-5">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:first_name].none?, "border-red-400 focus:outline-red-600": user.errors[:first_name].any?}] %>
-  </div>
+  <section class="flex flex-col items-center gap-5 md:flex-row">
+    <div class="w-full">
+      <%= form.label :first_name %>
+      <%= form.text_field :first_name %>
+    </div>
+    <div class="w-full">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name %>
+    </div>
+  </section>
 
-  <div class="my-5">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:last_name].none?, "border-red-400 focus:outline-red-600": user.errors[:last_name].any?}] %>
-  </div>
-
-  <div class="my-5">
+  <div class="w-full">
     <%= form.label :email_address %>
-    <%= form.text_field :email_address, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:email_address].none?, "border-red-400 focus:outline-red-600": user.errors[:email_address].any?}] %>
+    <%= form.text_field :email_address %>
   </div>
 
-  <div class="my-5">
+  <div class="w-full">
     <%= form.label :password %>
-    <%= form.password_field :password, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:password].none?, "border-red-400 focus:outline-red-600": user.errors[:password].any?}] %>
+    <%= form.password_field :password %>
   </div>
 
-  <div class="my-5">
+  <div class="w-full">
     <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:password_confirmation].none?, "border-red-400 focus:outline-red-600": user.errors[:password_confirmation].any?}] %>
+    <%= form.password_field :password_confirmation %>
   </div>
 
-  <div class="inline">
-    <%= form.submit class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+  <div class="flex justify-end">
+    <%= form.submit "Create Account", class: "max-w-fit rounded-sm font-display text-white border border-2 px-2 py-3 cursor-pointer bg-black font-medium hover:bg-yellow-300 hover:text-black" %>
   </div>
 <% end %>
