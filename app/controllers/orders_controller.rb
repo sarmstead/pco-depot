@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   include CurrentCart
 
+  layout "garage"
+
   allow_unauthenticated_access only: %i[ new create ]
 
   before_action :set_cart, only: %i[ new create ]
