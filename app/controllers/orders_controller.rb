@@ -1,8 +1,6 @@
 class OrdersController < ApplicationController
   include CurrentCart
 
-  layout "garage"
-
   allow_unauthenticated_access only: %i[ new create ]
 
   before_action :set_cart, only: %i[ new create ]
@@ -12,6 +10,7 @@ class OrdersController < ApplicationController
   # GET /orders or /orders.json
   def index
     @orders = Order.all
+    render :index, layout: "garage"
   end
 
   # GET /orders/1 or /orders/1.json
