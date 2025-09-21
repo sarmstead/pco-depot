@@ -6,7 +6,7 @@
     </section>
     <section class="mt-5 p-4 bg-gray-100 rounded max-h-fit">
         <h2 class="font-display text-lg font-medium text-right"><%= t("store.order_summary") %></h2>
-        <p class="text-base text-right">Total <%= number_to_currency cart.total_price %></p>
+        <p class="text-base text-right"><%= t("store.total")%> <%= number_to_currency cart.total_price %></p>
     </section>
     <% unless without_checkout %>
         <section class="flex justify-end mb-4">
