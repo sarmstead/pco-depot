@@ -1,6 +1,6 @@
 input:not([type="submit"]),
 textarea,
-select {
+select:not(#bespoke) {
   @apply block border-gray-200 border-1 rounded border px-3 py-3 w-full focus:outline-blue-600;
 }
 

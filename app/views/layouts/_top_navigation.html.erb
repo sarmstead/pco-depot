@@ -15,9 +15,10 @@
         </svg>
     <% end %>
     <search class="text-white flex justify-center items-center w-full"><input type="search" placeholder="Search the warehouse" class="font-display w-full max-w-200 border border-white rounded-full py-2 px-5 focus:bg-yellow-300 focus:text-black"/></search>
-    <ul class="flex space-x-3 text-white md:space-x-5">
+    <ul class="flex items-center gap-x-3 text-white md:gap-x-5">
         <li class="font-display uppercase tracking-wide"><%= link_to t("store.products"), store_index_path, class: "cursor-pointer border-transparent border-b-1 border-dashed hover:border-yellow-300" %></li>
         <%= render partial: "layouts/counter", locals: { cart: @cart } %>
+        <%= render partial: "layouts/locale_selector" %>
         <% if authenticated? %>
             <li class="font-display uppercase tracking-wide">
                 <%= button_to session_path, method: :delete, class: "flex items-center space-x-1 text-white min-w-max" do |b| %>
