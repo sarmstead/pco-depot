@@ -1,8 +1,17 @@
 en:
+  activerecord:
+    models:
+      order: "order"
   carts:
     show:
       empty_prefix: "No products in your cart? No problem. Check out our"
       empty_suffix: "extensive collection of tools"
+  errors:
+    template:
+      body: "Please review the following fields:"
+      header:
+        one: "There is 1 error preventing us from submitting your %{model}"
+        other: "There are %{count} errors preventing us from submitting your %{model}"
   number:
     currency:
       format:

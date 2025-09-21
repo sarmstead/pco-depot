@@ -1,8 +1,8 @@
 <%= form_with(model: order, url: orders_path(locale: I18n.locale), class: "flex flex-col space-y-5 w-full mt-[-13.5]") do |form| %>
   <% if order.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
-
+      <h2><%= t("errors.template.header", count: order.errors.count, model: t("activerecord.models.order")) %>.</h2>
+      <p><%= t("errors.template.body") %></p>
       <ul class="list-disc ml-6">
         <% order.errors.each do |error| %>
           <li><%= error.full_message %></li>
