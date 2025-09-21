@@ -1,4 +1,16 @@
 en:
+  carts:
+    show:
+      empty_prefix: "No products in your cart? No problem. Check out our"
+      empty_suffix: "extensive collection of tools"
+  number:
+    currency:
+      format:
+        delimiter: ", "
+        format: "%u%n"
+        precision: 2
+        separator: "."
+        unit: "$"
   store:
     account: "Account"
     add_to_cart: "Add to Cart"
@@ -12,7 +24,4 @@ en:
     place_order: "Place Order"
     products: "Products"
     total: "Total"
-  carts:
-    show:
-      empty_prefix: "No products in your cart? No problem. Check out our"
-      empty_suffix: "extensive collection of tools"
+    

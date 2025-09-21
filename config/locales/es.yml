@@ -1,4 +1,16 @@
 es:
+  carts:
+    show:
+      empty_prefix: "¿No tienes productos en tu carrito? No te preocupes. Descubre nuestra"
+      empty_suffix: "amplia colección de herramientas"
+  number:
+    currency:
+      format:
+        delimiter: "."
+        format: "%n&nbsp;%u"
+        precision: 2
+        separator: ","
+        unit: "USD"
   store:
     account: "Cuenta"
     add_to_cart: "Añadir al carrito"
@@ -12,7 +24,3 @@ es:
     place_order: "Comprar"
     products: "Productos"
     total: "Total"
-  carts:
-    show:
-      empty_prefix: "¿No tienes productos en tu carrito? No te preocupes. Descubre nuestra"
-      empty_suffix: "amplia colección de herramientas"
