@@ -1,14 +1,4 @@
-<div id="<%= dom_id user %>" class="w-full sm:w-auto my-5 space-y-5">
-  <div>
-    <strong class="block font-medium mb-1">First name:</strong>
-    <%= user.first_name %>
-  </div>
-  <div>
-    <strong class="block font-medium mb-1">Last name:</strong>
-    <%= user.last_name %>
-  </div>
-  <div>
-    <strong class="block font-medium mb-1">Email address:</strong>
-    <%= user.email_address %>
-  </div>
-</div>
+<article id="<%= dom_id user %>" class="w-full flex flex-col">
+  <%= link_to user.full_name, user, class: "text-xl text-white" %>
+  <%= mail_to user.email_address, class: "text-md text-yellow-300 border-transparent border-b-1 border-dashed w-fit hover:border-yellow-300 hover:text-white" %>
+</article>

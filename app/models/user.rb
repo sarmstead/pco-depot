@@ -14,6 +14,10 @@ class User < ApplicationRecord
   class Error < StandardError
   end
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   private
 
   def ensure_admin_remains

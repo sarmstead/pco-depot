@@ -4,21 +4,29 @@
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
   <% end %>
+  <% if alert.present? %>
+    <p class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
+  <% end %>
 
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Users</h1>
-    <%= link_to "New user", new_user_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
+    <h1 class="font-semibold text-4xl text-white">Users</h1>
+    <%= link_to "New User", new_user_path, class: "rounded-sm font-display text-black border-2 px-2 py-3 cursor-pointer bg-yellow-300 font-medium hover:bg-white" %>
   </div>
 
-  <div id="users" class="min-w-full divide-y divide-gray-200 space-y-5">
+  <div id="users" class="min-w-full divide-y divide-gray-200">
     <% if @users.any? %>
       <% @users.each do |user| %>
-        <div class="flex flex-col sm:flex-row justify-between items-center pb-5 sm:pb-0">
+        <div class="flex flex-col py-5 sm:flex-row justify-between items-center" data-controller="user" data-action="keydown.esc->user#closeActions">
           <%= render user %>
-          <div class="w-full sm:w-auto flex flex-col sm:flex-row space-x-2 space-y-2">
-            <%= link_to "Show", user, class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-            <%= link_to "Edit", edit_user_path(user), class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-            <%= button_to "Destroy", user, method: :delete, class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 text-white bg-red-600 hover:bg-red-500 font-medium cursor-pointer", data: { turbo_confirm: "Are you sure?" } %>
+          <div class="relative">
+            <button class="text-white cursor-pointer" title="Actions" data-action="click->user#actions"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"/></svg></button>
+            <div class="hidden absolute top-[30px] right-0 z-10" data-user-target="actionMenu">
+              <ul class="min-w-[100px] bg-black border-[0.5] border-yellow-300 p-3 flex flex-col gap-1 items-end">
+                <li><%= link_to "View", user, class: "cursor-pointer text-white border-transparent border-b-1 border-dashed hover:border-yellow-300 hover:text-white" %></li>
+                <li><%= link_to "Edit", edit_user_path(user), class: "cursor-pointer text-white border-transparent border-b-1 border-dashed hover:border-yellow-300 hover:text-white" %></li>
+                <li><%= button_to "Delete", user, method: :delete, class: "cursor-pointer text-white border-transparent border-b-1 border-dashed hover:border-yellow-300 hover:text-white", data: { turbo_confirm: "Are you sure?" } %></li>
+              </ul>
+            </div>
           </div>
         </div>
       <% end %>
