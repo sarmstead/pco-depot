@@ -12,6 +12,8 @@ en:
       header:
         one: "There is 1 error preventing us from submitting your %{model}"
         other: "There are %{count} errors preventing us from submitting your %{model}"
+  line_items:
+    each: "each"
   number:
     currency:
       format:

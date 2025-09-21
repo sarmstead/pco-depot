@@ -2,6 +2,6 @@
     <h2 class="font-display text-md font-medium text-right"><%= line_item.product.title %> &times; <%= line_item.quantity %></h2>
     <p class="text-sm font-bold text-right"><%= number_to_currency line_item.product.price * line_item.quantity %></p>
     <% if line_item.quantity > 1 %>
-        <p class="text-xs text-gray-600 text-right"><%= line_item.product.price %> / each</p>
+        <p class="text-xs text-gray-600 text-right"><%= line_item.product.price %> / <%= t("line_items.each") %></p>
     <% end %>
 </article>
