@@ -6,6 +6,6 @@
             <p class="font-bold"><%= number_to_currency product.price %></p>
             <p><%= truncate(strip_tags(product.description), length: 100) %></p>
         </div>
-        <%= button_to t("store.add_to_cart"), line_items_path(product_id: product), class: "rounded-sm font-display text-black border-2 px-2 py-3 cursor-pointer bg-white font-medium hover:bg-yellow-300" %>
+        <%= button_to t("store.add_to_cart"), line_items_path(product_id: product, locale: I18n.locale), class: "rounded-sm font-display text-black border-2 px-2 py-3 cursor-pointer bg-white font-medium hover:bg-yellow-300" %>
     </article>
 <% end %>
