@@ -8,4 +8,17 @@ class User < ApplicationRecord
   has_many :sessions, dependent: :destroy
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
+
+  after_destroy :ensure_admin_remains
+
+  class Error < StandardError
+  end
+
+  private
+
+  def ensure_admin_remains
+    if User.count.zero?
+      raise Error.new "Yikes! You can't delete the last user, silly billy."
+    end
+  end
 end
