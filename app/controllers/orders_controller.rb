@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
         session[:cart_id]
         ChargeOrderJob.perform_later(@order, pay_type_params.to_h)
 
-        format.html { redirect_to store_index_url, notice: "Thanks for your order! We're packing it right now." }
+        format.html { redirect_to store_index_url(locale: I18n.locale), notice: I18n.t("orders.form.success") }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new, status: :unprocessable_entity }

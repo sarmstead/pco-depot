@@ -36,6 +36,7 @@ en:
         "credit_card": "Credit Card"
         "purchase_order": "Purchase Order"
       purchase_order_number: "PO Number"
+      success: "Thanks for your order! We're packing it right now."
   store:
     account: "Account"
     add_to_cart: "Add to Cart"

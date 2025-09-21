@@ -46,6 +46,7 @@ es:
         "credit_card": "Tarjeta de Crédito"
         "purchase_order": "Orden de Compra"
       purchase_order_number: "Número de orden de compra"
+      success: "¡Gracias por tu pedido! Lo estamos empacando ahora mismo."
   store:
     account: "Cuenta"
     add_to_cart: "Añadir al carrito"
