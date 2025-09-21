@@ -1,10 +1,10 @@
 <fieldset data-payment-target="additionalFields" data-type="check" class="flex flex-col space-y-5">
     <div>
-        <%= form.label :routing_number %>
+        <%= form.label :routing_number, t("orders.form.routing_number") %>
         <%= form.text_field :routing_number %>
     </div>
     <div>
-        <%= form.label :account_number %>
+        <%= form.label :account_number, t("orders.form.account_number") %>
         <%= form.password_field :account_number %>
     </div>
 </fieldset>

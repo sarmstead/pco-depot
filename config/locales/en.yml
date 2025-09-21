@@ -11,6 +11,22 @@ en:
         precision: 2
         separator: "."
         unit: "$"
+  orders:
+    form:
+      account_number: "Account number"
+      address: "Address"
+      credit_card_number: "Credit Card Number"
+      email: "Email"
+      expiration_date: "Expiration Date"
+      name: "Name"
+      routing_number: "Routing number"
+      payment_method: "Payment method"
+      pay_prompt: "How would you like to pay?"
+      pay_types:
+        "check": "Check"
+        "credit_card": "Credit Card"
+        "purchase_order": "Purchase Order"
+      purchase_order_number: "PO Number"
   store:
     account: "Account"
     add_to_cart: "Add to Cart"
@@ -24,4 +40,3 @@ en:
     place_order: "Place Order"
     products: "Products"
     total: "Total"
-    

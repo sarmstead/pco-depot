@@ -11,6 +11,22 @@ es:
         precision: 2
         separator: ","
         unit: "USD"
+  orders:
+    form:
+      account_number: "Número de cuenta"
+      address: "Dirección"
+      credit_card_number: "Número de tarjeta de crédito"
+      email: "Correo electrónico"
+      expiration_date: "Fecha de expiración"
+      name: "Nombre"
+      routing_number: "Número de ruta"
+      payment_method: "Método de pago"
+      pay_prompt: "¿Cómo le gustaría pagar?"
+      pay_types:
+        "check": "Cheque"
+        "credit_card": "Tarjeta de Crédito"
+        "purchase_order": "Orden de Compra"
+      purchase_order_number: "Número de orden de compra"
   store:
     account: "Cuenta"
     add_to_cart: "Añadir al carrito"
