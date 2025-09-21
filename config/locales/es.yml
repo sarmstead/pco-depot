@@ -1,0 +1,6 @@
+es:
+  store:
+    account: "Cuenta"
+    cart: "Carro"
+    logout: "Salir"
+    products: "Productos"
