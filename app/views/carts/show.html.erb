@@ -5,13 +5,13 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <h1 class="font-bold text-4xl mb-5">Cart</h1>
+  <h1 class="font-bold text-4xl mb-5"><%= t("store.cart") %></h1>
 
   <% if @cart.line_items.present? %>
     <section class="basis-4xl border-gray-200 border-1 rounded max-h-fit">
       <%= render @cart %>
     </section>
     <% else %>
-      <p class="p-4 bg-gray-100 rounded">No products in your cart? No problem. Check out our <%= link_to "extensive collection of tools", store_index_path, class: "underline" %>!</p>
+      <p class="p-4 bg-gray-100 rounded"><%= t(".empty_prefix") %> <%= link_to t(".empty_suffix"), store_index_path, class: "underline" %>!</p>
     <% end %>
 </div>

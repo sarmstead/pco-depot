@@ -1,7 +1,7 @@
 <% content_for :title, "New order" %>
 
 <div class="flex flex-col space-y-5 w-full">
-  <h1 class="font-bold text-4xl pb-5">Checkout</h1>
+  <h1 class="font-bold text-4xl pb-5"><%= t("store.checkout") %></h1>
   <section class="grid grid-cols-1 gap-4 md:grid-cols-[1fr_300px]">
     <%= render "form", order: @order %>
     <%= render partial: "layouts/cart", locals: { cart: @cart, without_checkout: true } %>

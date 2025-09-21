@@ -1,6 +1,18 @@
 es:
   store:
     account: "Cuenta"
-    cart: "Carro"
+    add_to_cart: "Añadir al carrito"
+    cart: "Carrito"
+    checkout: "Comprar"
+    empty_cart: "Vaciar Carrito"
+    index:
+      empty: "¡No se encontraron productos!"
     logout: "Salir"
+    order_summary: "Resumen del Pedido"
+    place_order: "Comprar"
     products: "Productos"
+    total: "Total"
+  carts:
+    show:
+      empty_prefix: "¿No tienes productos en tu carrito? No te preocupes. Descubre nuestra"
+      empty_suffix: "amplia colección de herramientas"

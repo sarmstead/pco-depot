@@ -2,7 +2,7 @@
   <%= render "layouts/notice" %>
   <%= render "layouts/alert" %>
 
-  <h1 class="font-display font-medium text-4xl">Products</h1>
+  <h1 class="font-display font-medium text-4xl"><%= t("store.products") %></h1>
 
   <%= turbo_stream_from "products" %>
 
@@ -20,6 +20,6 @@
       <%= render partial: "layouts/cart", locals: { cart: @cart } %>
     </section>
   <% else %>
-    <p>No Products found!</p>
+    <p><%= t(".empty") %></p>
   <% end %>
 </div>

@@ -1,6 +1,18 @@
 en:
   store:
     account: "Account"
+    add_to_cart: "Add to Cart"
     cart: "Cart"
+    checkout: "Checkout"
+    empty_cart: "Empty Cart"
+    index:
+      empty: "No Products found!"
     logout: "Log Out"
+    order_summary: "Order Summary"
+    place_order: "Place Order"
     products: "Products"
+    total: "Total"
+  carts:
+    show:
+      empty_prefix: "No products in your cart? No problem. Check out our"
+      empty_suffix: "extensive collection of tools"
