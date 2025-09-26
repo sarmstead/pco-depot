@@ -6,8 +6,15 @@ one:
   email: ttaylor@example.net
   pay_type: check
 
-two:
+jill_most_recent:
   name: Jill Taylor
   address: MyText
   email: jtaylor@example.net
   pay_type: check
+
+jill_oldest:
+  name: Jill Taylor
+  address: MyText
+  email: jtaylor@example.net
+  pay_type: check
+  created_at: <%= 2.days.ago %>
