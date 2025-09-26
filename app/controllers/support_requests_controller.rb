@@ -4,7 +4,7 @@ class SupportRequestsController < ApplicationController
   before_action :set_support_request, only: %i[ show update ]
 
   def index
-    @support_requests = SupportRequest.order("created_at desc")
+    @support_requests = SupportRequest.order("created_at asc")
   end
 
   def show; end
