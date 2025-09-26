@@ -1,13 +1,19 @@
 class SupportRequestsController < ApplicationController
   layout "garage"
 
-  before_action :set_support_request, only: %i[ show ]
+  before_action :set_support_request, only: %i[ show update ]
 
   def index
     @support_requests = SupportRequest.order("created_at desc")
   end
 
   def show; end
+
+  def update
+    @support_request.update(response: params.require(:support_request)[:response])
+    SupportRequestMailer.respond(@support_request).deliver_now
+    redirect_to support_requests_path
+  end
 
   private
 

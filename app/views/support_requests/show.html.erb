@@ -33,5 +33,21 @@
             </dl>
         </section>
     <% end %>
-    <h2 class="font-semibold text-2xl text-white mb-5">Respond Back?</h2>
+    <section>
+        <% if @support_request.response.blank? %>
+            <h2 class="font-semibold text-2xl text-white mb-2">Respond Back?</h2>
+            <%= form_with(model: @support_request, local: true, class: "flex flex-col bg-gray-600 p-3") do |form| %>
+                <div>
+                    <%= form.label :response, "How can you help?" %>
+                    <%= form.rich_textarea :response, id: :support_request_response %>
+                </div>
+                <div class="flex justify-end">
+                    <%= form.submit "Send", class: "max-w-fit rounded-sm font-display text-white border border-2 px-2 py-3 cursor-pointer bg-black font-medium hover:bg-yellow-300 hover:text-black" %>
+                </div>
+            <% end %>
+        <% else %>
+            <h2 class="font-semibold text-2xl text-white mb-2">We Responded ✅</h2>
+            <blockquote class="bg-gray-800 border-l-3 border-gray-600 p-3 text-white"><%= @support_request.response %></blockquote>
+        <% end %>
+    </section>
 </div>
