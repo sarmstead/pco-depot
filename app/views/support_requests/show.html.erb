@@ -9,10 +9,29 @@
             <span class="mt-[0.5] cursor-pointer border-transparent border-b-1 border-dashed hover:border-yellow-300">Back</span>
         <% end %>
     </aside>
-    <h1 class="font-semibold text-4xl text-white mb-5">Support Request No.<%= @support_request.id %></h1>
-    <section class="text-white flex flex-col gap-1">
+    <h1 class="font-semibold text-4xl text-white mb-5">Support Request No. <%= @support_request.id %></h1>
+    <section class="text-white flex flex-col gap-1 mb-10">
         <p class="font-display uppercase tracking-wide font-normal"><%= @support_request.subject %></p>
         <p class="border-b-1 border-dashed border-yellow-300 max-w-fit mb-3"><%= @support_request.email %></p>
-        <div class="bg-gray-800 p-3"><%= @support_request.body %></div>
+        <blockquote class="bg-gray-800 border-l-3 border-gray-600 p-3"><%= @support_request.body %></blockquote>
     </section>
+    <% if @support_request.order %>
+        <section class="mb-10">
+            <h2 class="font-semibold text-2xl text-white mb-2">Most Recent Order</h2>
+            <dl class="flex flex-col gap-1 text-white">
+                <dt><%= @support_request.order.name %> (<%= @support_request.order.email %>)</dt>
+                <dd class="ml-3"><%= @support_request.order.pay_type.titleize %></dd>
+                <dd class="mb-2 ml-3"><%= @support_request.order.address %></dd>
+                <dt>Line Items</dt>
+                <dd>
+                    <ul class="ml-3">
+                        <% @support_request.order.line_items.each do |item| %>
+                            <li><%= item.product.title %> (<%= number_to_currency item.product.price %>)</li>
+                        <% end %>
+                    </ul>
+                </dd>
+            </dl>
+        </section>
+    <% end %>
+    <h2 class="font-semibold text-2xl text-white mb-5">Respond Back?</h2>
 </div>
