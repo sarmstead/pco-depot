@@ -1,0 +1,18 @@
+<div class="w-full">
+    <aside class="mb-10">
+        <%= link_to support_requests_path, class: "text-white font-display uppercase tracking-wide font-normal flex items-center space-x-1" do %>
+            <div class="w-5">
+                <svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 -960 960 960" width="100%" fill="currentColor">
+                    <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/>
+                </svg>
+            </div>
+            <span class="mt-[0.5] cursor-pointer border-transparent border-b-1 border-dashed hover:border-yellow-300">Back</span>
+        <% end %>
+    </aside>
+    <h1 class="font-semibold text-4xl text-white mb-5">Support Request No.<%= @support_request.id %></h1>
+    <section class="text-white flex flex-col gap-1">
+        <p class="font-display uppercase tracking-wide font-normal"><%= @support_request.subject %></p>
+        <p class="border-b-1 border-dashed border-yellow-300 max-w-fit mb-3"><%= @support_request.email %></p>
+        <div class="bg-gray-800 p-3"><%= @support_request.body %></div>
+    </section>
+</div>

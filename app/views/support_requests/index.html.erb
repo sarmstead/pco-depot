@@ -1,0 +1,27 @@
+<h1 class="font-semibold text-4xl text-white mb-5">Support Requests</h1>
+<table class="flex flex-col text-white w-full max-w-full overflow-x-auto border-[0.5] border-gray-300 border-b-0">
+    <thead>
+        <tr class="grid grid-cols-[100px_200px_minmax(400px,_1fr)_100px_300px]">
+            <th class="flex justify-center font-display uppercase tracking-wide font-normal p-2 border-b-[0.5] border-gray-300">ID</th>
+            <th class="flex justify-start font-display uppercase tracking-wide font-normal p-2 border-b-[0.5] border-gray-300">Email</th>
+            <th class="flex justify-start font-display uppercase tracking-wide font-normal p-2 border-b-[0.5] border-gray-300">Subject</th>
+            <th class="flex justify-center font-display uppercase tracking-wide font-normal p-2 border-b-[0.5] border-gray-300">Order</th>
+            <th class="flex justify-start font-display uppercase tracking-wide font-normal p-2 border-b-[0.5] border-gray-300">Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @support_requests.each do |request| %>
+            <tr class="grid grid-cols-[100px_200px_minmax(400px,_1fr)_100px_300px]">
+                <td class="flex justify-center p-2 border-b-[0.5] border-r-[0.5] border-gray-300">
+                    <%= link_to request.id, support_request_path(request.id), class: "cursor-pointer border-transparent border-b-1 border-dashed hover:border-yellow-300" %>
+                </td>
+                <td class="flex justify-start p-2 border-b-[0.5] border-r-[0.5] border-gray-300"><%= request.email %></td>
+                <td class="flex justify-start p-2 border-b-[0.5] border-r-[0.5] border-gray-300"><%= truncate(request.subject, length: 20) %></td>
+                <td class="flex justify-center p-2 border-b-[0.5] border-r-[0.5] border-gray-300">
+                    <%= link_to request.order.id, order_path(request.order.id), class: "cursor-pointer border-transparent border-b-1 border-dashed hover:border-yellow-300" %>
+                </td>
+                <td class="flex justify-start p-2 border-b-[0.5] border-r-[0.5] border-gray-300"><%= request.created_at.strftime("%m/%d/%y %H:%M:%S") %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
