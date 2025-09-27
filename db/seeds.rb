@@ -16,3 +16,10 @@ YAML.load_file(products).each do |name, attributes|
 
   puts "  > #{attributes["title"]} created! ✅\n\n"
 end
+
+User.create!(
+  first_name: "Al",
+  last_name: "Borland",
+  email: "aborland@pcodepot.com",
+  password: Rails.application.credentials.base_user.password
+)
